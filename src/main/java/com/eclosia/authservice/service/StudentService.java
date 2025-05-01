@@ -5,6 +5,7 @@ import com.eclosia.authservice.dto.StudentRegistrationRequestDTO;
 import com.eclosia.authservice.entitiy.User;
 import com.eclosia.authservice.repository.ReactiveUserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import reactor.core.publisher.Mono;
 
 public class StudentService {
   private final ReactiveUserRepository userRepository;
+
   private final KeycloakService keycloakService;
   public Mono<User> registerUser(StudentRegistrationRequestDTO dto) {
     return userRepository.existsByEmail(dto.getEmail())

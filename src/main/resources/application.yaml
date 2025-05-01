@@ -3,10 +3,9 @@ spring:
   application:
     name: auth-service
 
-    profiles:
-      active: dev
-  datasource:
-    url: jdbc:postgresql://localhost:5432/user
+    profiles: { active: dev }
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/user
     username: postgres
     password: bj151197
   keycloak:
@@ -14,6 +13,7 @@ spring:
     client-id: auth-client
     client-secret: secret123
     server-url: http://localhost:8080/auth
+    realm: master
 
 
   dotenv:
