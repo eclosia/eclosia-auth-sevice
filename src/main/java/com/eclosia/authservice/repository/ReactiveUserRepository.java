@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.Base64;
 @Repository
 public interface ReactiveUserRepository extends ReactiveCrudRepository <User, Long> {
+
   Mono<User> findByEmail(String email);
   Mono<Boolean> existsByEmail(String email);
 

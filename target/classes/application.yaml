@@ -1,25 +1,18 @@
+server:
+    port: 8081
+
 spring:
-  
-  application:
-    name: auth-service
 
-    profiles: { active: dev }
-  r2dbc:
-    url: r2dbc:postgresql://localhost:5432/user
-    username: postgres
-    password: bj151197
-  keycloak:
+    application:
+        name: auth-service
 
-    client-id: auth-client
-    client-secret: secret123
-    server-url: http://localhost:8080/auth
-    realm: master
+    keycloak:
+        client-id: authservice
+        client-secret: TXRGO6cA1XypFz12EViGeVRPf5p7voB3
+        server-url: http://localhost:8090
+        realm: eclosia
 
-
-  dotenv:
-    enabled: true
-
-  spring:
-  cloud:
-    config:
-      enabled: false  
+    r2dbc:
+        url: r2dbc:postgresql://localhost:5432/eclosia
+        username: postgres
+        password: sadik2003

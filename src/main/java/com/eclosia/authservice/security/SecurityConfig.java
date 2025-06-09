@@ -9,14 +9,16 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 @Configuration
 @EnableWebFluxSecurity
 public class SecurityConfig {
-  @Bean
-  public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) {
-    return http
-       .csrf(ServerHttpSecurity.CsrfSpec::disable) // Disable CSRF
-       .authorizeExchange(auth -> auth
-          .pathMatchers("/auth/**").permitAll() // Public endpoints
-          .anyExchange().authenticated() // Everything else requires authentication
-       )
-       .build();
-  }
+    @Bean
+    public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) {
+        return http
+                .csrf(ServerHttpSecurity.CsrfSpec::disable) // Disable CSRF
+                .authorizeExchange(auth -> auth
+                        .pathMatchers("/auth/**").permitAll()
+                        .pathMatchers("/actuator/**").permitAll()
+                        .pathMatchers("/v3/**").permitAll()// Public endpoints
+                        .anyExchange().authenticated() // Everything else requires authentication
+                )
+                .build();
+    }
 }
