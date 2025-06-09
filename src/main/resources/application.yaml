@@ -1,0 +1,18 @@
+server:
+    port: 8081
+
+spring:
+
+    application:
+        name: auth-service
+
+    keycloak:
+        client-id: authservice
+        client-secret: TXRGO6cA1XypFz12EViGeVRPf5p7voB3
+        server-url: http://localhost:8090
+        realm: eclosia
+
+    r2dbc:
+        url: r2dbc:postgresql://localhost:5432/eclosia
+        username: postgres
+        password: sadik2003
